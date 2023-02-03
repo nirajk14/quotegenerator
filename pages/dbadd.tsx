@@ -16,7 +16,7 @@ const dbadd=() =>{
         
         try {
             let max_iteration=-1;
-            let q=query(collection(db,'quotes'),where("initial","==",data.initial),orderBy("iteration","desc"),limit(1))
+            let q=query(collection(db,'quotes'),where("initial","==",data.initial.toUpperCase()),orderBy("iteration","desc"),limit(1))
             let snapshot = await getDocs(q)
             snapshot.docs.forEach((docs)=>console.log(docs.data().iteration))
             if (snapshot){
